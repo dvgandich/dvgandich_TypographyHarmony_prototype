@@ -129,11 +129,17 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 ---
 
 ## Скриншоты
+1. Вывод архитектуры нейросети
+![вывод архитектуры нейросети](images/torchinfo_architecture.jpg)
 
-- torchinfo_architecture.jpg - вывод архитектуры нейросети
-- training_results.png - графики обучения
-- gradio_interface.jpg - работа веб-интерфейса
-- netron_graph.jpg - визуализация модели в Netron
+2. Графики обучения
+![графики обучения](images/training_results.png)
+
+3. Работа веб-интерфейса
+![работа веб-интерфейса](images/gradio_interface.jpg)
+
+4. Визуализация модели в Netron
+![визуализация модели в Netron](images/netron_graph.jpg)
 
 ---
 
