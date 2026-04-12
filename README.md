@@ -130,8 +130,6 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 
 ## Скриншоты
 
-(вставьте сюда пути к вашим скриншотам)
-
 - torchinfo_architecture.jpg - вывод архитектуры нейросети
 - training_results.png - графики обучения
 - gradio_interface.jpg - работа веб-интерфейса
