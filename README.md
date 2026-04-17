@@ -62,7 +62,13 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 - Третий скрытый слой: Linear(16, 8) + ReLU
 - Выходной слой: Linear(8, 1) + Sigmoid
 
-Общее число параметров: 1025
+Подсчёт параметров:
+- Linear(11, 32): 11 * 32 + 32 = 384
+- Linear(32, 16): 32 * 16 + 16 = 528
+- Linear(16, 8): 16 * 8 + 8 = 136
+- Linear(8, 1): 8 * 1 + 1 = 9
+
+Общее число параметров: 384 + 528 + 136 + 9 = 1057
 Все параметры обучаемые.
 
 ### 5. Веб-интерфейс (Gradio)
@@ -117,6 +123,149 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 
 ---
 
+## Установка и зависимости
+
+### Требования
+- Python 3.10 или выше
+- Google Colab (рекомендуется) или локальный компьютер с GPU/CPU
+
+### Необходимые библиотеки
+
+Для запуска прототипа требуются следующие библиотеки:
+
+pip install torch torchinfo numpy pandas matplotlib scikit-learn gradio
+
+### Установка на локальном компьютере
+
+1. Клонировать репозиторий:
+
+git clone https://github.com/dvgandich/TypographyHarmony_prototype.git
+cd TypographyHarmony_prototype
+
+2. Создать виртуальное окружение (рекомендуется):
+
+python -m venv venv
+source venv/bin/activate  # для Linux/Mac
+venv\Scripts\activate     # для Windows
+
+3. Установить зависимости:
+
+pip install -r requirements.txt
+
+4. Запустить Jupyter Notebook:
+
+jupyter notebook TypographyHarmony_Prototype.ipynb
+
+---
+
+## Примеры запуска
+
+### Пример 1: Запуск в Google Colab (рекомендуемый способ)
+
+1. Открыть Google Colab
+2. Загрузить файл TypographyHarmony_Prototype.ipynb
+3. В меню выбрать: Среда выполнения -> Сменить среду выполнения -> T4 GPU
+4. Запустить все ячейки: Среда выполнения -> Выполнить все
+5. Дождаться появления ссылки вида https://xxxx.gradio.live
+6. Перейти по ссылке для работы с веб-интерфейсом
+
+### Пример 2: Работа с веб-интерфейсом
+
+После запуска Gradio откроется интерфейс. Пример ввода для гармоничного шрифта:
+
+| Параметр | Значение |
+|----------|----------|
+| Контрастность | 1.3 |
+| Интерлиньяж | 1.3 |
+| Длина строки | 15 |
+| Насыщенность | 400 |
+| Тип шрифта | 0 (гротеск) |
+| Носитель | 1 (печать) |
+
+Ожидаемый результат: оценка > 0.8
+
+### Пример 3: Программный вызов функции оценки
+
+from harmony_model import calculate_harmony_score
+
+params = {
+    'font_type': 0,
+    'contrast': 1.3,
+    'relative_leading': 1.3,
+    'relative_line_length': 15,
+    'proportion': 1.0,
+    'weight': 400,
+    'tracking': 0.0
+}
+context = {'media': 1, 'lighting': 1.0, 'audience': 1.0}
+
+score = calculate_harmony_score(params, context)
+print(f"Оценка гармоничности: {score:.3f}")
+
+---
+
+## Непрерывная интеграция (CI/CD)
+
+В репозитории настроен GitHub Actions для автоматического тестирования кода.
+
+Статус последней сборки:
+
+[![Test Harmony Model](https://github.com/dvgandich/TypographyHarmony_prototype/actions/workflows/test.yml/badge.svg)](https://github.com/dvgandich/TypographyHarmony_prototype/actions/workflows/test.yml)
+
+Что проверяется автоматически:
+- Установка всех зависимостей
+- Проверка функции гармонии
+- Создание нейросети и проверка количества параметров (1057)
+- Наличие основного ноутбука
+
+Как посмотреть результаты:
+1. Перейти на вкладку Actions в репозитории
+2. Выбрать workflow CI/CD Pipeline
+3. Просмотреть логи выполнения
+
+---
+
+## Документация кода
+
+Код содержит полную документацию в формате docstrings:
+
+- Аннотации типов — все функции имеют указание типов аргументов и возвращаемых значений
+- Описание функций — каждая функция имеет docstring с описанием назначения, аргументов и возвращаемого значения
+- Комментарии — сложные блоки кода снабжены пояснениями
+
+### Пример документации функции:
+
+def calculate_harmony_score(params: Dict[str, float], context: Dict[str, float]) -> float:
+    """
+    Вычисляет интегральную оценку гармоничности типографики.
+
+    Формула: Q = sum(w_i * F_i)
+
+    Args:
+        params: Словарь с геометрическими параметрами
+        context: Словарь с контекстуальными параметрами
+
+    Returns:
+        float: Оценка гармоничности от 0 до 1
+    """
+
+---
+
+## Структура проекта
+TypographyHarmony_prototype/
+├── .github/
+│ └── workflows/
+│ └── test.yml                             # CI/CD конфигурация
+├── images/
+│ ├── torchinfo_architecture.jpg           # Скриншот архитектуры нейросети
+│ ├── gradio_interface.jpg                 # Скриншот веб-интерфейса
+│ ├── training_results.png                 # Графики обучения
+│ └── netron_graph.jpg                     # Скриншот визуализации в Netron
+├── TypographyHarmony_Prototype.ipynb      # Основной ноутбук с кодом
+├── test_script.py                         # Скрипт для CI/CD тестов
+├── harmony_model.onnx                     # Модель для визуализации в Netron
+└── README.md                              # Документация
+
 ## Инструкция по запуску
 
 1. Открыть Google Colab
@@ -125,6 +274,17 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 4. Запустить все ячейки (Среда выполнения -> Выполнить все)
 5. Дождаться появления ссылки вида https://xxxx.gradio.live
 6. Перейти по ссылке для работы с веб-интерфейсом
+
+---
+
+## Возможные проблемы и решения
+
+| Проблема | Решение |
+|----------|---------|
+| Gradio не открывается в России | Использовать VPN или развернуть на Hugging Face Spaces |
+| Ошибка ModuleNotFoundError | Установить недостающую библиотеку: pip install <библиотека> |
+| Не хватает памяти в Colab | Перезапустить среду выполнения: Среда выполнения -> Перезапустить среду выполнения |
+| Долгое обучение | Включить GPU: Среда выполнения -> Сменить среду выполнения -> T4 GPU |
 
 ---
 
@@ -140,6 +300,14 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 
 4. Визуализация модели в Netron
 ![визуализация модели в Netron](images/netron_graph.jpg)
+
+---
+
+## Ссылки
+
+- Репозиторий на GitHub: https://github.com/dvgandich/TypographyHarmony_prototype
+- Netron (визуализация нейросетей): https://netron.app/
+- Google Colab: https://colab.research.google.com
 
 ---
 
