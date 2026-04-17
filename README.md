@@ -250,7 +250,6 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 ---
 
 ## Структура проекта
-    ```bash
     TypographyHarmony_prototype/
     ├── .github/
     │ └── workflows/
