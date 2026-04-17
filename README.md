@@ -132,28 +132,37 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 ### Необходимые библиотеки
 
 Для запуска прототипа требуются следующие библиотеки:
-
+```markdown
+```bash
 pip install torch torchinfo numpy pandas matplotlib scikit-learn gradio
 
 ### Установка на локальном компьютере
 
 1. Клонировать репозиторий:
 
-git clone https://github.com/dvgandich/TypographyHarmony_prototype.git
-cd TypographyHarmony_prototype
+```markdown
+```bash
+git clone https://github.com/dvgandich/TypographyHarmony_AI.git
+cd TypographyHarmony_AI
 
 2. Создать виртуальное окружение (рекомендуется):
 
+```markdown
+```bash
 python -m venv venv
 source venv/bin/activate  # для Linux/Mac
 venv\Scripts\activate     # для Windows
 
 3. Установить зависимости:
 
+```markdown
+```bash
 pip install -r requirements.txt
 
 4. Запустить Jupyter Notebook:
 
+```markdown
+```bash
 jupyter notebook TypographyHarmony_Prototype.ipynb
 
 ---
