@@ -132,36 +132,27 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 ### Необходимые библиотеки
 
 Для запуска прототипа требуются следующие библиотеки:
-    ```markdown
     ```bash
     pip install torch torchinfo numpy pandas matplotlib scikit-learn gradio
 
 ### Установка на локальном компьютере
 
 1. Клонировать репозиторий:
-
-    ```markdown
     ```bash
     git clone https://github.com/dvgandich/TypographyHarmony_AI.git
     cd TypographyHarmony_AI
 
 2. Создать виртуальное окружение (рекомендуется):
-
-    ```markdown
     ```bash
     python -m venv venv
     source venv/bin/activate  # для Linux/Mac
     venv\Scripts\activate     # для Windows
 
 3. Установить зависимости:
-
-    ```markdown
     ```bash
     pip install -r requirements.txt
 
 4. Запустить Jupyter Notebook:
-
-    ```markdown
     ```bash
     jupyter notebook TypographyHarmony_Prototype.ipynb
 
@@ -194,8 +185,6 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 Ожидаемый результат: оценка > 0.8
 
 ### Пример 3: Программный вызов функции оценки
-
-    ```markdown
     ```bash
     from harmony_model import calculate_harmony_score
 
@@ -245,8 +234,6 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 - Комментарии — сложные блоки кода снабжены пояснениями
 
 ### Пример документации функции:
-
-    ```markdown
     ```bash
     def calculate_harmony_score(params: Dict[str, float], context: Dict[str, float]) -> float:
         """
@@ -265,19 +252,20 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 ---
 
 ## Структура проекта
-TypographyHarmony_prototype/
-├── .github/
-│ └── workflows/
-│ └── test.yml                             # CI/CD конфигурация
-├── images/
-│ ├── torchinfo_architecture.jpg           # Скриншот архитектуры нейросети
-│ ├── gradio_interface.jpg                 # Скриншот веб-интерфейса
-│ ├── training_results.png                 # Графики обучения
-│ └── netron_graph.jpg                     # Скриншот визуализации в Netron
-├── TypographyHarmony_Prototype.ipynb      # Основной ноутбук с кодом
-├── test_script.py                         # Скрипт для CI/CD тестов
-├── harmony_model.onnx                     # Модель для визуализации в Netron
-└── README.md                              # Документация
+    ```bash
+    TypographyHarmony_prototype/
+    ├── .github/
+    │ └── workflows/
+    │ └── test.yml                             # CI/CD конфигурация
+    ├── images/
+    │ ├── torchinfo_architecture.jpg           # Скриншот архитектуры нейросети
+    │ ├── gradio_interface.jpg                 # Скриншот веб-интерфейса
+    │ ├── training_results.png                 # Графики обучения
+    │ └── netron_graph.jpg                     # Скриншот визуализации в Netron
+    ├── TypographyHarmony_Prototype.ipynb      # Основной ноутбук с кодом
+    ├── test_script.py                         # Скрипт для CI/CD тестов
+    ├── harmony_model.onnx                     # Модель для визуализации в Netron
+    └── README.md                              # Документация
 
 ## Инструкция по запуску
 
