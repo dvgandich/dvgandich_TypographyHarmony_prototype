@@ -185,7 +185,6 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 Ожидаемый результат: оценка > 0.8
 
 ### Пример 3: Программный вызов функции оценки
-    ```bash
     from harmony_model import calculate_harmony_score
 
     params = {
@@ -234,7 +233,6 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 - Комментарии — сложные блоки кода снабжены пояснениями
 
 ### Пример документации функции:
-    ```bash
     def calculate_harmony_score(params: Dict[str, float], context: Dict[str, float]) -> float:
         """
         Вычисляет интегральную оценку гармоничности типографики.
