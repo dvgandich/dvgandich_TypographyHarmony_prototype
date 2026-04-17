@@ -132,38 +132,38 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 ### Необходимые библиотеки
 
 Для запуска прототипа требуются следующие библиотеки:
-```markdown
-```bash
-pip install torch torchinfo numpy pandas matplotlib scikit-learn gradio
+    ```markdown
+    ```bash
+    pip install torch torchinfo numpy pandas matplotlib scikit-learn gradio
 
 ### Установка на локальном компьютере
 
 1. Клонировать репозиторий:
 
-```markdown
-```bash
-git clone https://github.com/dvgandich/TypographyHarmony_AI.git
-cd TypographyHarmony_AI
+    ```markdown
+    ```bash
+    git clone https://github.com/dvgandich/TypographyHarmony_AI.git
+    cd TypographyHarmony_AI
 
 2. Создать виртуальное окружение (рекомендуется):
 
-```markdown
-```bash
-python -m venv venv
-source venv/bin/activate  # для Linux/Mac
-venv\Scripts\activate     # для Windows
+    ```markdown
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # для Linux/Mac
+    venv\Scripts\activate     # для Windows
 
 3. Установить зависимости:
 
-```markdown
-```bash
-pip install -r requirements.txt
+    ```markdown
+    ```bash
+    pip install -r requirements.txt
 
 4. Запустить Jupyter Notebook:
 
-```markdown
-```bash
-jupyter notebook TypographyHarmony_Prototype.ipynb
+    ```markdown
+    ```bash
+    jupyter notebook TypographyHarmony_Prototype.ipynb
 
 ---
 
@@ -195,21 +195,23 @@ jupyter notebook TypographyHarmony_Prototype.ipynb
 
 ### Пример 3: Программный вызов функции оценки
 
-from harmony_model import calculate_harmony_score
+    ```markdown
+    ```bash
+    from harmony_model import calculate_harmony_score
 
-params = {
-    'font_type': 0,
-    'contrast': 1.3,
-    'relative_leading': 1.3,
-    'relative_line_length': 15,
-    'proportion': 1.0,
-    'weight': 400,
-    'tracking': 0.0
-}
-context = {'media': 1, 'lighting': 1.0, 'audience': 1.0}
+    params = {
+        'font_type': 0,
+        'contrast': 1.3,
+        'relative_leading': 1.3,
+        'relative_line_length': 15,
+        'proportion': 1.0,
+        'weight': 400,
+        'tracking': 0.0
+    }
+    context = {'media': 1, 'lighting': 1.0, 'audience': 1.0}
 
-score = calculate_harmony_score(params, context)
-print(f"Оценка гармоничности: {score:.3f}")
+    score = calculate_harmony_score(params, context)
+    print(f"Оценка гармоничности: {score:.3f}")
 
 ---
 
@@ -244,19 +246,21 @@ print(f"Оценка гармоничности: {score:.3f}")
 
 ### Пример документации функции:
 
-def calculate_harmony_score(params: Dict[str, float], context: Dict[str, float]) -> float:
-    """
-    Вычисляет интегральную оценку гармоничности типографики.
+    ```markdown
+    ```bash
+    def calculate_harmony_score(params: Dict[str, float], context: Dict[str, float]) -> float:
+        """
+        Вычисляет интегральную оценку гармоничности типографики.
 
-    Формула: Q = sum(w_i * F_i)
+        Формула: Q = sum(w_i * F_i)
 
-    Args:
-        params: Словарь с геометрическими параметрами
-        context: Словарь с контекстуальными параметрами
+        Args:
+            params: Словарь с геометрическими параметрами
+            context: Словарь с контекстуальными параметрами
 
-    Returns:
-        float: Оценка гармоничности от 0 до 1
-    """
+        Returns:
+            float: Оценка гармоничности от 0 до 1
+        """
 
 ---
 
