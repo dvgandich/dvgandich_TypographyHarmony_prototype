@@ -209,7 +209,7 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 
 Статус последней сборки:
 
-[![Test Harmony Model](https://github.com/dvgandich/TypographyHarmony_prototype/actions/workflows/test.yml/badge.svg)](https://github.com/dvgandich/TypographyHarmony_prototype/actions/workflows/test.yml)
+[![CI/CD Pipeline](https://github.com/dvgandich/dvgandich_TypographyHarmony_prototype/actions/workflows/test.yml/badge.svg)](https://github.com/dvgandich/dvgandich_TypographyHarmony_prototype/actions/workflows/test.yml)
 
 Что проверяется автоматически:
 - Установка всех зависимостей
