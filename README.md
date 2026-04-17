@@ -139,8 +139,8 @@ F_i = exp(-((g_i / h_target - 1)^2) / (2 * sigma_i^2))
 
 1. Клонировать репозиторий:
     ```bash
-    git clone https://github.com/dvgandich/TypographyHarmony_AI.git
-    cd TypographyHarmony_AI
+    git clone https://github.com/dvgandich/TypographyHarmony_prototype.git
+    cd TypographyHarmony_prototype
 
 2. Создать виртуальное окружение (рекомендуется):
     ```bash
